@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 process.on('uncaughtException', (err) => {
-  // console.log(err.name, err.message);
-  // console.log('UNCAUGHT EXCEPTION!! Shutting down...');
+  console.log(err.name, err.message);
+  console.log('UNCAUGHT EXCEPTION!! Shutting down...');
   process.exit(1);
 });
 
@@ -24,17 +24,17 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    // console.log('Successful login');
+    console.log('Successful login');
   });
 //
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
-  // console.log(`App running on port ${port}`);
+  console.log(`App running on port ${port}`);
 });
 
 process.on('unhandledRejection', (err) => {
-  // console.log(err.name, err.message);
-  // console.log('UNHANDLER REJECTION! Shutting down...');
+  console.log(err.name, err.message);
+  console.log('UNHANDLER REJECTION! Shutting down...');
   server.close(() => {
     process.exit(1);
   });
